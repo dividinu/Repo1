@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Change Font Color on Button Click</title>
+<style>
+  button {
+    background-color: #7006e9;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 35px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #03e90f;
+  }
+
+  p {
+    font-family: Arial, sans-serif;
+    font-size: 28px;
+    line-height: 1.5;
+    color: #dd0404; /* Default font color: black */
+    margin-bottom: 15px;
+  }
+</style>
+</head>
+<body>
+
+<p>This is a styled paragraph. It uses nice spacing and readable font.</p>
+<p>same set of rules follow with different colours.</p>
+
+<button onclick="toggleFontColor()">Click Me</button>
+
+<script>
+  function toggleFontColor() {
+    const paragraphs = document.querySelectorAll('p');
+    paragraphs.forEach(p => {
+      if (p.style.color === 'red') {
+        p.style.color = 'black';
+      } else {
+        p.style.color = 'red';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
