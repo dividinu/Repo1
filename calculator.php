@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <?php
     ini_set('resplay_errors',0);
@@ -27,7 +27,7 @@
         $res= $num1/$num2;
     }
     
-    if($_REQUEST['firstnum']==NULL || $_REQUEST['secondnum']==NULL)
+    if($_REQUEST['firstnum']==null || $_REQUEST['secondnum']==null)
     {
         echo "<script language=javascript> alert(\"Enter values.\");</script>";
     }
@@ -35,11 +35,11 @@
 ?>
 
 <head>
+    <title>CALCULATOR</TITLE>
     <script src=
 "https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.min.js"
-            integrity=
-"sha512-iphNRh6dPbeuPGIrQbCdbBF/qcqadKWLa35YPVfMZMHBSI6PLJh1om2xCTWhpVpmUyb4IvVS9iYnnYMkleVXLA=="
-            crossorigin="anonymous" 
+            
+            crossorigin="anonymous"
             referrerpolicy="no-referrer">
     </script>
 
@@ -74,24 +74,25 @@
 
 
 <body>
+    <table>
     <table id="calculator">
         <tr>
             <td colspan="3">
                 <input type="text" id="answer">
             </td>
-        </tr>
+        </tr></table>
         <tr>
             <td>
-                <input type="button" 
-                         value="AC" 
-                         onclick="clear_input()" 
-                         onkeydown="ans(event)"> 
+                <input type="button"
+                         value="AC"
+                         onclick="clear_input()"
+                         onkeydown="ans(event)">
             </td>
             <td>
                 <input type="button" 
                          value="()" 
                          onclick="res('()')" 
-                         onkeydown="ans(event)"> 
+                         onkeydown="ans(event)">
             </td>
             <td>
                 <input type="button" 

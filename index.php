@@ -1,32 +1,55 @@
-<?php
-// This is a PHP script that prints "Hello, World!"
-echo "Hello, World!";
-
-// This is a comment explaining the code
-// The following line prints the current date and time
-echo "Current date and time: " . date("Y-m-d H:i:s");
-// This is a multi-line comment
-/*
-This is a multi-line commen
-It can span multiple lines
-*/
-?>
-<?php
-// Set background color using a PHP variable
-$bgColor = "#d1e7dd"; // Light greenish background
-?>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>PHP Background Color</title>
+  <meta charset="UTF-8">
+  <title>Styled PHP Webpage</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color: <?php echo $bgColor; ?>;">
+<body>
+  <header id="main-header">
+    <h1>My SAMPLE WEB</h1>
+  </header>
 
-    <h1>Welcome to My PHP Page</h1>
-    <p>The background color is dynamically set using PHP.</p>
+  <div class="content">
+    <?php
+      // Define a function
+      function greetUser($name) {
+        return "Welcome, <span class='highlight'>$name</span>!";
+      }
 
+      // Define a list
+      $hobbies = ["Reading", "Coding", "Gardening", "Traveling"];
+     $PROFESSIONS = [
+  "SCRIPT1" => "PHP",
+  "html SCRIPT2" => "HTML",
+  "javaSCRIPT3" => "JAVA",
+  "python SCRIPT4" => "PYTHON"
+];
+
+    
+
+      // Call the function
+      echo "<p class='greeting'>" . greetUser("DIVYA") . "</p>";
+    ?>
+
+    <div id="hobby-section">
+      <h2>My Hobbies:</h2>
+      <ul>
+        
+        <?php
+        foreach ($PROFESSIONS as $key => $value) {
+    
+     echo "<li class='professions-item' . $key. PHP_EOL>";  "</li>";
+    
+        }
+    ?>
+      </ul>
+    </div>
+  </div>
+    
+
+  <footer>
+    <p>&copy; <?php echo date("d/F/Y"); ?> divya Portfolio</p>
+  </footer>
 </body>
 </html>
-
-

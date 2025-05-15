@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Neumorphism Calculator</title>
+    <style>
+        body {
+            background: #e0e0e0;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculator {
+            background: #03b2af;
+            box-shadow: 10px 10px 20px #bebebe,
+                        -10px -10px 20px #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            width: 300px;
+        }
+
+        .display {
+            background: hsl(263, 62%, 96%);
+            box-shadow: inset 5px 5px 10px #f5f6dc,
+                        inset -5px -5px 10px #ffffff;
+            border: none;
+            border-radius: 50px;
+            padding: 3px 5px;
+            font-size: 1.5rem;
+            width: 100%;
+            height:50px;
+            text-align: right;
+            margin-bottom: 40px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .btn {
+            background: #e0e0e0;
+            box-shadow: 5px 5px 10px #e76363,
+                        -5px -5px 10px #ffffff;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn:active {
+            box-shadow: inset 5px 5px 10px #bebebe,
+                        inset -5px -5px 10px #ffffff;
+        }
+
+        .btn.operator {
+            color: #007BFF;
+        }
+
+        .btn.equal {
+            background-color: #007BFF;
+            color: rgb(162, 214, 19);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <input type="text" class="display" id="display" disabled>
+        <div class="buttons">
+            <button class="btn" onclick="clearDisplay()">C</button>
+            <button class="btn" onclick="deleteLast()">←</button>
+            <button class="btn operator" onclick="append('%')">%</button>
+            <button class="btn operator" onclick="append('/')">÷</button>
+
+            <button class="btn" onclick="append('7')">7</button>
+            <button class="btn" onclick="append('8')">8</button>
+            <button class="btn" onclick="append('9')">9</button>
+            <button class="btn operator" onclick="append('*')">×</button>
+
+            <button class="btn" onclick="append('4')">4</button>
+            <button class="btn" onclick="append('5')">5</button>
+            <button class="btn" onclick="append('6')">6</button>
+            <button class="btn operator" onclick="append('-')">−</button>
+
+            <button class="btn" onclick="append('1')">1</button>
+            <button class="btn" onclick="append('2')">2</button>
+            <button class="btn" onclick="append('3')">3</button>
+            <button class="btn operator" onclick="append('+')">+</button>
+            <button class="btn" onclick="append('.')">.</button>
+
+            <button class="btn" style="grid-column: span 2;" onclick="append('0')">0</button>
+
+<button class="btn equal" onclick="calculate()">=</button>
+
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById("display");
+
+        function append(char) {
+            display.value += char;
+        }
+
+        function clearDisplay() {
+            display.value = '';
+        }
+
+        function deleteLast() {
+            display.value = display.value.slice(0, -1);
+        }
+
+        function calculate() {
+            try {
+                display.value = eval(display.value);
+            } 
+            catch (e) {
+                display.value = ("Error",e);
+            }
+        }
+    </script>
+
+</body>
+</html>
